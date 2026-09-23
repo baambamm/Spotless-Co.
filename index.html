@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f7f5" />
+  <meta name="description" content="Spotless Co. — premium home and commercial cleaning services." />
+  <title>Spotless Co. | Clean, Elevated.</title>
+  <style>
+    :root{
+      --bg:#f7f7f5; --surface:#fff; --ink:#111; --muted:#6b6b6b;
+      --line:rgba(17,17,17,.10); --accent:#111; --soft:#ecece8;
+      --radius:28px; --shadow:0 20px 70px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);letter-spacing:-.02em}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .nav{position:fixed;z-index:20;top:14px;left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 28px));height:64px;padding:0 10px 0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.72);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 35px rgba(0,0,0,.07);border-radius:999px}
+    .brand{font-weight:800;font-size:18px;letter-spacing:-.04em}.brand span{opacity:.45}
+    .navlinks{display:flex;gap:26px;font-size:14px;color:#555}.navlinks a:hover{color:#000}
+    .navcta,.btn{border:0;background:#111;color:#fff;padding:13px 20px;border-radius:999px;font-weight:700;cursor:pointer;transition:.25s}
+    .navcta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.18)}
+    .hero{min-height:100vh;padding:150px 6vw 70px;display:grid;place-items:center;overflow:hidden;position:relative}
+    .hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(211,231,222,.7),transparent 65%);top:5%;right:-10%;filter:blur(10px)}
+    .hero-inner{width:min(1120px,100%);position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center}
+    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:#777;margin-bottom:20px;font-weight:700}
+    h1{font-size:clamp(58px,8vw,112px);line-height:.88;letter-spacing:-.075em;margin:0 0 28px;font-weight:800}
+    h1 em{font-style:normal;color:#8b8b86}
+    .hero-copy{font-size:20px;line-height:1.45;color:#555;max-width:590px;margin-bottom:32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.secondary{background:transparent;color:#111;border:1px solid var(--line)}
+    .trust{display:flex;gap:24px;margin-top:42px;color:#777;font-size:13px;align-items:center}.stars{color:#111;letter-spacing:2px}
+    .hero-card{background:#111;color:white;border-radius:38px;padding:18px;box-shadow:var(--shadow);transform:rotate(2deg);transition:transform .5s}
+    .hero-card:hover{transform:rotate(0deg) translateY(-8px)}
+    .card-image{height:480px;border-radius:28px;background:linear-gradient(135deg,#dfe8e2,#8c9b92 55%,#3b4741);position:relative;overflow:hidden}
+    .card-image:after{content:"SPOTLESS";position:absolute;bottom:24px;left:24px;font-size:42px;font-weight:800;letter-spacing:-.07em}
+    .floating{position:absolute;left:-22px;bottom:24px;background:rgba(255,255,255,.92);color:#111;padding:17px 20px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.18);font-size:13px}
+    section{padding:110px 6vw}.container{width:min(1120px,100%);margin:auto}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}.section-head h2{font-size:clamp(40px,5vw,68px);letter-spacing:-.065em;line-height:.95;margin:0;max-width:650px}.section-head p{color:#666;max-width:360px;line-height:1.5}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;min-height:310px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}.service:hover{transform:translateY(-8px);box-shadow:var(--shadow)}.icon{font-size:28px}.service h3{font-size:27px;margin:30px 0 10px;letter-spacing:-.04em}.service p{color:#666;line-height:1.5;margin:0}.arrow{font-size:24px;align-self:end}
+    .dark{background:#111;color:#fff}.dark .section-head p{color:#aaa}.dark .service{background:#181818;color:#fff;border-color:#292929}.dark .service p{color:#aaa}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{padding:32px;border-top:1px solid #333}.num{color:#777;font-size:13px}.step h3{font-size:26px;margin:55px 0 10px}
+    .quote{background:#e7ebe8;border-radius:38px;padding:70px 7vw;text-align:center}.quote blockquote{font-size:clamp(30px,4vw,54px);letter-spacing:-.055em;line-height:1.05;margin:0 auto 24px;max-width:900px}.quote small{color:#666}
+    .booking{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.booking h2{font-size:clamp(44px,5vw,70px);line-height:.92;letter-spacing:-.065em;margin:0 0 20px}.booking-copy{color:#666;line-height:1.5}.form{background:#fff;padding:30px;border-radius:30px;border:1px solid var(--line);box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:14px}.field label{display:block;font-size:12px;font-weight:700;margin:0 0 7px;color:#666}.field input,.field select,.field textarea{width:100%;border:1px solid #ddd;background:#fafafa;border-radius:14px;padding:14px;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#111;background:#fff}.full{grid-column:1/-1}
+    footer{padding:40px 6vw 55px;border-top:1px solid var(--line);color:#777}.footer-inner{width:min(1120px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px}.footer-brand{color:#111;font-weight:800}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .toast{position:fixed;z-index:50;right:22px;bottom:22px;background:#111;color:#fff;padding:15px 18px;border-radius:16px;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s}.toast.show{opacity:1;transform:none}
+    @media(max-width:850px){.navlinks{display:none}.hero-inner,.booking{grid-template-columns:1fr}.hero{padding-top:130px}.hero-card{max-width:520px;margin:auto}.services,.steps{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#">SPOTLESS <span>CO.</span></a>
+    <div class="navlinks"><a href="#services">Services</a><a href="#process">How it works</a><a href="#reviews">Reviews</a></div>
+    <a class="navcta" href="#book">Get a quote</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="reveal">
+          <div class="eyebrow">Premium cleaning, without the hassle.</div>
+          <h1>A cleaner space.<br><em>A better day.</em></h1>
+          <p class="hero-copy">Spotless Co. brings hotel-level care to homes and businesses. Thoughtful service, sharp details, and a space that feels brand new.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#book">Book a cleaning →</a>
+            <a class="btn secondary" href="#services">Explore services</a>
+          </div>
+          <div class="trust"><span class="stars">★★★★★</span><span>Trusted by local clients</span><span>•</span><span>Easy booking</span></div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="card-image"><div class="floating"><strong>Freshly cleaned</strong><br>Every detail matters.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Clean isn't the goal.<br><span>Spotless is.</span></h2>
+          <p>From quick resets to deep transformations, choose the service that fits your space and your schedule.</p>
+        </div>
+        <div class="services">
+          <article class="service reveal"><div><div class="icon">✦</div><h3>Standard Clean</h3><p>Kitchen, bathrooms, surfaces, floors, dusting and the essentials that make your space feel fresh again.</p></div><div class="arrow">↗</div></article>
+          <article class="service reveal"><div><div class="icon">◌</div><h3>Deep Clean</h3><p>For the reset. Extra attention to buildup, edges, neglected areas and all the little things a normal clean misses.</p></div><div class="arrow">↗</div></article>
+          <article class="service reveal"><div><div class="icon">⌂</div><h3>Move In / Out</h3><p>Starting fresh or leaving it behind? We handle the heavy-duty clean so you can focus on the move.</p></div><div class="arrow">↗</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="process">
+      <div class="container">
+        <div class="section-head reveal"><h2>Zero friction.<br>Just clean.</h2><p>We keep the experience simple from your first click to the final walkthrough.</p></div>
+        <div class="steps">
+          <div class="step reveal"><div class="num">01 / TELL US</div><h3>Choose your service.</h3><p>Tell us what you need, where you are, and when you want it.</p></div>
+          <div class="step reveal"><div class="num">02 / WE HANDLE IT</div><h3>We make it happen.</h3><p>Our team arrives ready, prepared and focused on the details.</p></div>
+          <div class="step reveal"><div class="num">03 / BREATHE</div><h3>Come home to clean.</h3><p>Walk in, look around, and enjoy that freshly-reset feeling.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="quote reveal"><blockquote>“It felt like we got our whole house back.”</blockquote><small>★★★★★ &nbsp; • &nbsp; Verified client</small></div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="container booking">
+        <div class="reveal">
+          <div class="eyebrow">Ready when you are.</div>
+          <h2>Let's make your space feel new.</h2>
+          <p class="booking-copy">Request a quote in under a minute. We'll follow up with availability and pricing.</p>
+        </div>
+        <form class="form reveal" id="quoteForm">
+          <div class="grid">
+            <div class="field"><label>NAME</label><input required placeholder="Your name" /></div>
+            <div class="field"><label>PHONE</label><input required type="tel" placeholder="(602) 000-0000" /></div>
+            <div class="field"><label>EMAIL</label><input type="email" placeholder="you@email.com" /></div>
+            <div class="field"><label>SERVICE</label><select><option>Standard Clean</option><option>Deep Clean</option><option>Move In / Out</option><option>Commercial</option></select></div>
+            <div class="field"><label>PREFERRED DATE</label><input type="date" /></div>
+            <div class="field"><label>SPACE</label><select><option>Apartment</option><option>House</option><option>Office</option><option>Other</option></select></div>
+            <div class="field full"><label>ANYTHING WE SHOULD KNOW?</label><textarea placeholder="Pets, priorities, special requests..."></textarea></div>
+            <div class="full"><button class="btn" type="submit" style="width:100%">Request my quote →</button></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><div><div class="footer-brand">SPOTLESS CO.</div><div>Clean, elevated.</div></div><div>© 2026 Spotless Co. All rights reserved.</div></div></footer>
+  <div class="toast" id="toast">Request received. We'll be in touch. ✓</div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('quoteForm').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('toast').classList.add('show');
+      setTimeout(() => document.getElementById('toast').classList.remove('show'), 3500);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
