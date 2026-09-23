@@ -1,31 +1,26 @@
-# Spotless Co. Website
+# Spotless Co.
 
-A premium, Apple-inspired single-page cleaning service website.
+Premium commercial and office cleaning landing page.
+
+## Current direction
+Spotless Co. is positioned primarily for offices, commercial spaces, property managers, studios, retail and professional workplaces.
 
 ## Included
-- Responsive modern landing page
-- Sticky glass navigation
-- Animated reveal-on-scroll sections
-- Service cards
-- 3-step process
-- Testimonial section
+- Apple-inspired responsive interface
+- Business-focused hero section
+- Office photography
+- Commercial service cards
+- Business/client review section
+- Four-step process
 - Quote request form
-- Mobile responsive layout
-- No external dependencies
+- Mobile-specific layout fixes
+- Scroll reveal animations
+- No JavaScript frameworks required
 
-## Run locally
-Open `index.html` in your browser.
+## GitHub / Vercel
+The website is `index.html`.
 
-## Deploy to GitHub + Vercel
-1. Create a new GitHub repository.
-2. Upload `index.html` and `README.md`.
-3. Import the repo into Vercel.
-4. Deploy with the default settings.
+The `.zip` file is only a downloadable project backup and does not need to be inside the GitHub repository.
 
-## Customize before launch
-- Replace "Spotless Co." if the brand name changes.
-- Add real phone/email.
-- Replace the testimonial with a real review.
-- Connect the form to Formspree, Resend, a CRM, or your own backend.
-- Add real before/after photography.
-- Add service pricing once finalized.
+## Before launch
+Replace the sample review names/text with real reviews, connect the quote form to a real form backend/CRM, replace temporary imagery with licensed brand photography, and replace the temporary brand name if needed.

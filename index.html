@@ -1,149 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7f7f5" />
-  <meta name="description" content="Spotless Co. — premium home and commercial cleaning services." />
-  <title>Spotless Co. | Clean, Elevated.</title>
-  <style>
-    :root{
-      --bg:#f7f7f5; --surface:#fff; --ink:#111; --muted:#6b6b6b;
-      --line:rgba(17,17,17,.10); --accent:#111; --soft:#ecece8;
-      --radius:28px; --shadow:0 20px 70px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);letter-spacing:-.02em}
-    a{text-decoration:none;color:inherit}
-    button,input,select,textarea{font:inherit}
-    .nav{position:fixed;z-index:20;top:14px;left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 28px));height:64px;padding:0 10px 0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.72);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 35px rgba(0,0,0,.07);border-radius:999px}
-    .brand{font-weight:800;font-size:18px;letter-spacing:-.04em}.brand span{opacity:.45}
-    .navlinks{display:flex;gap:26px;font-size:14px;color:#555}.navlinks a:hover{color:#000}
-    .navcta,.btn{border:0;background:#111;color:#fff;padding:13px 20px;border-radius:999px;font-weight:700;cursor:pointer;transition:.25s}
-    .navcta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.18)}
-    .hero{min-height:100vh;padding:150px 6vw 70px;display:grid;place-items:center;overflow:hidden;position:relative}
-    .hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(211,231,222,.7),transparent 65%);top:5%;right:-10%;filter:blur(10px)}
-    .hero-inner{width:min(1120px,100%);position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center}
-    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:#777;margin-bottom:20px;font-weight:700}
-    h1{font-size:clamp(58px,8vw,112px);line-height:.88;letter-spacing:-.075em;margin:0 0 28px;font-weight:800}
-    h1 em{font-style:normal;color:#8b8b86}
-    .hero-copy{font-size:20px;line-height:1.45;color:#555;max-width:590px;margin-bottom:32px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.secondary{background:transparent;color:#111;border:1px solid var(--line)}
-    .trust{display:flex;gap:24px;margin-top:42px;color:#777;font-size:13px;align-items:center}.stars{color:#111;letter-spacing:2px}
-    .hero-card{background:#111;color:white;border-radius:38px;padding:18px;box-shadow:var(--shadow);transform:rotate(2deg);transition:transform .5s}
-    .hero-card:hover{transform:rotate(0deg) translateY(-8px)}
-    .card-image{height:480px;border-radius:28px;background:linear-gradient(135deg,#dfe8e2,#8c9b92 55%,#3b4741);position:relative;overflow:hidden}
-    .card-image:after{content:"SPOTLESS";position:absolute;bottom:24px;left:24px;font-size:42px;font-weight:800;letter-spacing:-.07em}
-    .floating{position:absolute;left:-22px;bottom:24px;background:rgba(255,255,255,.92);color:#111;padding:17px 20px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.18);font-size:13px}
-    section{padding:110px 6vw}.container{width:min(1120px,100%);margin:auto}
-    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}.section-head h2{font-size:clamp(40px,5vw,68px);letter-spacing:-.065em;line-height:.95;margin:0;max-width:650px}.section-head p{color:#666;max-width:360px;line-height:1.5}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;min-height:310px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}.service:hover{transform:translateY(-8px);box-shadow:var(--shadow)}.icon{font-size:28px}.service h3{font-size:27px;margin:30px 0 10px;letter-spacing:-.04em}.service p{color:#666;line-height:1.5;margin:0}.arrow{font-size:24px;align-self:end}
-    .dark{background:#111;color:#fff}.dark .section-head p{color:#aaa}.dark .service{background:#181818;color:#fff;border-color:#292929}.dark .service p{color:#aaa}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{padding:32px;border-top:1px solid #333}.num{color:#777;font-size:13px}.step h3{font-size:26px;margin:55px 0 10px}
-    .quote{background:#e7ebe8;border-radius:38px;padding:70px 7vw;text-align:center}.quote blockquote{font-size:clamp(30px,4vw,54px);letter-spacing:-.055em;line-height:1.05;margin:0 auto 24px;max-width:900px}.quote small{color:#666}
-    .booking{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}.booking h2{font-size:clamp(44px,5vw,70px);line-height:.92;letter-spacing:-.065em;margin:0 0 20px}.booking-copy{color:#666;line-height:1.5}.form{background:#fff;padding:30px;border-radius:30px;border:1px solid var(--line);box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:14px}.field label{display:block;font-size:12px;font-weight:700;margin:0 0 7px;color:#666}.field input,.field select,.field textarea{width:100%;border:1px solid #ddd;background:#fafafa;border-radius:14px;padding:14px;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#111;background:#fff}.full{grid-column:1/-1}
-    footer{padding:40px 6vw 55px;border-top:1px solid var(--line);color:#777}.footer-inner{width:min(1120px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px}.footer-brand{color:#111;font-weight:800}
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-    .toast{position:fixed;z-index:50;right:22px;bottom:22px;background:#111;color:#fff;padding:15px 18px;border-radius:16px;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s}.toast.show{opacity:1;transform:none}
-    @media(max-width:850px){.navlinks{display:none}.hero-inner,.booking{grid-template-columns:1fr}.hero{padding-top:130px}.hero-card{max-width:520px;margin:auto}.services,.steps{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:20px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-inner{flex-direction:column}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f6f8fa">
+<meta name="description" content="Spotless Co. provides premium commercial and office cleaning for modern businesses.">
+<title>Spotless Co. | Professional Cleaning for Business</title>
+<style>
+:root{--bg:#f6f8fa;--white:#fff;--ink:#0b0d10;--muted:#68717c;--line:rgba(11,13,16,.1);--blue:#5d7898;--blue-soft:#eaf1f7;--shadow:0 24px 70px rgba(16,30,45,.1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);letter-spacing:-.02em;overflow-x:hidden}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}
+.nav{position:fixed;z-index:30;top:14px;left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 28px));height:64px;padding:0 10px 0 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.78);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 35px rgba(0,0,0,.07);border-radius:999px}
+.brand{font-weight:850;font-size:18px;letter-spacing:-.055em}.brand span{color:#93a3b4}.navlinks{display:flex;gap:28px;font-size:14px;color:#59616a}.navlinks a:hover{color:#000}
+.navcta,.btn{border:0;background:#0b0d10;color:#fff;padding:13px 20px;border-radius:999px;font-weight:750;cursor:pointer;transition:.25s ease;display:inline-flex;align-items:center;justify-content:center;gap:8px}.navcta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.hero{min-height:100svh;padding:145px 6vw 78px;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,rgba(174,201,224,.42),transparent 30%),linear-gradient(180deg,#f8fafb 0%,#eef3f6 100%)}
+.hero-inner{width:min(1160px,100%);position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);gap:70px;align-items:center}
+.eyebrow,.section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#647487;margin-bottom:20px;font-weight:800}h1{font-size:clamp(56px,7vw,102px);line-height:.89;letter-spacing:-.078em;margin:0 0 28px;font-weight:850;max-width:760px}h1 em{font-style:normal;color:var(--blue)}
+.hero-copy{font-size:19px;line-height:1.5;color:#56616c;max-width:610px;margin-bottom:30px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.secondary{background:rgba(255,255,255,.65);color:#111;border:1px solid var(--line)}
+.trust{display:flex;gap:20px;margin-top:38px;color:#65707b;font-size:12px;align-items:center;flex-wrap:wrap}.stars{color:#3d79ba;letter-spacing:2px;font-size:14px}.trust-item{display:flex;align-items:center;gap:7px}.dot{width:5px;height:5px;background:#8da0b2;border-radius:50%}
+.hero-visual{width:100%;min-width:0;position:relative}.office-card{width:100%;min-width:0;height:540px;border-radius:38px;overflow:hidden;position:relative;background:linear-gradient(90deg,rgba(6,12,18,.34),rgba(6,12,18,.02) 62%),url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88") center/cover;box-shadow:var(--shadow);transition:transform .5s ease}.office-card:hover{transform:translateY(-6px)}.office-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.4));pointer-events:none}
+.office-label{position:absolute;z-index:2;left:24px;top:24px;padding:10px 14px;border-radius:999px;color:#fff;background:rgba(15,20,25,.45);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(14px);font-size:12px;font-weight:700}.office-copy{position:absolute;z-index:2;left:28px;bottom:28px;color:#fff}.office-copy strong{display:block;font-size:30px;letter-spacing:-.045em;margin-bottom:5px}.office-copy span{font-size:13px;opacity:.82}
+.review-float{position:absolute;z-index:5;right:-25px;bottom:28px;background:rgba(255,255,255,.94);color:#111;padding:15px 18px;border-radius:20px;box-shadow:0 18px 40px rgba(0,0,0,.16);min-width:205px}.review-float .mini-stars{color:#2878c8;letter-spacing:2px;font-size:12px}.review-float strong{display:block;font-size:14px;margin-top:3px}.review-float small{color:#68717c}
+section{padding:115px 6vw}.container{width:min(1160px,100%);margin:auto}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:48px}.section-head h2{font-size:clamp(40px,5vw,68px);letter-spacing:-.07em;line-height:.94;margin:0;max-width:680px}.section-head p{color:#68717c;max-width:390px;line-height:1.55;margin:0}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.service{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;min-height:390px;display:flex;flex-direction:column;transition:.3s ease;box-shadow:0 4px 20px rgba(15,25,35,.03)}.service:hover{transform:translateY(-7px);box-shadow:var(--shadow)}.service-image{height:175px;background-position:center;background-size:cover}.service:nth-child(1) .service-image{background-image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85")}.service:nth-child(2) .service-image{background-image:url("https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=85")}.service:nth-child(3) .service-image{background-image:url("https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=85")}.service-body{padding:25px 27px 27px;display:flex;flex-direction:column;flex:1}.service h3{font-size:26px;margin:0 0 9px;letter-spacing:-.045em}.service p{color:#69727c;line-height:1.5;margin:0}.arrow{font-size:21px;align-self:flex-end;margin-top:auto;padding-top:20px}
+.reviews-section{background:var(--blue-soft)}.review-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}.rating-block h2{font-size:clamp(44px,5vw,68px);line-height:.94;letter-spacing:-.07em;margin:0 0 18px}.rating-block p{color:#63707d;line-height:1.55;max-width:420px}.rating-line{display:flex;align-items:center;gap:12px;margin-top:24px;font-weight:750}.rating-line .big-stars{color:#2878c8;letter-spacing:3px}.rating-line small{color:#65707b;font-weight:500}.review-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.review{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.9);border-radius:23px;padding:22px;min-height:230px;display:flex;flex-direction:column}.review-person{display:flex;align-items:center;gap:10px}.avatar{width:36px;height:36px;border-radius:50%;background:#d9e5ef;display:grid;place-items:center;font-weight:800;font-size:12px;color:#50687e}.review-person strong{font-size:13px;display:block}.review-person small{color:#7a838c;display:block}.review-stars{color:#2878c8;letter-spacing:2px;font-size:11px;margin:18px 0 10px}.review blockquote{font-size:14px;line-height:1.5;margin:0;color:#3e464e}.review-date{margin-top:auto;padding-top:15px;color:#89919a;font-size:11px}
+.dark{background:#0b0d10;color:#fff}.dark .section-kicker{color:#8da6bd}.dark .section-head p{color:#9ca5ae}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{padding:30px;border-top:1px solid #2a2e33}.num{color:#78838e;font-size:12px;font-weight:800;letter-spacing:.1em}.step h3{font-size:25px;letter-spacing:-.04em;margin:65px 0 10px}.step p{color:#929ba4;line-height:1.5;margin:0}
+.booking{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}.booking h2{font-size:clamp(44px,5vw,70px);line-height:.92;letter-spacing:-.07em;margin:0 0 20px}.booking-copy{color:#68717c;line-height:1.55}.form{background:#fff;padding:30px;border-radius:30px;border:1px solid var(--line);box-shadow:var(--shadow)}.form-title{font-size:22px;font-weight:800;letter-spacing:-.04em;margin-bottom:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:14px}.field label{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;margin:0 0 7px;color:#6b7580}.field input,.field select,.field textarea{width:100%;border:1px solid #dce1e5;background:#fafbfc;border-radius:14px;padding:14px;outline:none;color:#111}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#829bb3;background:#fff;box-shadow:0 0 0 4px rgba(104,143,180,.1)}.full{grid-column:1/-1}
+footer{padding:42px 6vw 55px;border-top:1px solid var(--line);color:#777}.footer-inner{width:min(1160px,100%);margin:auto;display:flex;justify-content:space-between;gap:20px}.footer-brand{color:#111;font-weight:850;letter-spacing:-.05em}.footer-sub{margin-top:4px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}.toast{position:fixed;z-index:50;right:22px;bottom:22px;background:#0b0d10;color:#fff;padding:15px 18px;border-radius:16px;opacity:0;transform:translateY(15px);pointer-events:none;transition:.3s;box-shadow:0 15px 35px rgba(0,0,0,.2)}.toast.show{opacity:1;transform:none}
+@media(max-width:900px){.navlinks{display:none}.hero{padding:125px 20px 60px;min-height:auto}.hero-inner{grid-template-columns:1fr;gap:42px;width:100%}h1{font-size:clamp(53px,15vw,78px)}.hero-copy{font-size:17px}.hero-visual{width:100%;min-width:0}.office-card{width:100%;height:390px;border-radius:30px;transform:none!important}.review-float{right:12px;bottom:14px}section{padding:82px 20px}.section-head{display:block}.section-head p{margin-top:20px}.services{grid-template-columns:1fr}.service{min-height:0}.service-image{height:210px}.review-grid{grid-template-columns:1fr}.review-cards{grid-template-columns:1fr}.review{min-height:0}.steps{grid-template-columns:1fr 1fr}.step h3{margin-top:45px}.booking{grid-template-columns:1fr;gap:35px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-inner{flex-direction:column}}
+@media(max-width:520px){.nav{top:10px;width:calc(100% - 20px);height:58px;padding-left:17px}.navcta{padding:11px 16px;font-size:13px}.brand{font-size:16px}.hero-actions .btn{width:100%}.trust{gap:10px;margin-top:27px}.trust .dot{display:none}.office-card{height:330px}.office-copy strong{font-size:25px}.steps{grid-template-columns:1fr}.step{padding:25px}.step h3{margin-top:32px}.form{padding:22px}.review-float{min-width:190px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <nav class="nav">
-    <a class="brand" href="#">SPOTLESS <span>CO.</span></a>
-    <div class="navlinks"><a href="#services">Services</a><a href="#process">How it works</a><a href="#reviews">Reviews</a></div>
-    <a class="navcta" href="#book">Get a quote</a>
-  </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="reveal">
-          <div class="eyebrow">Premium cleaning, without the hassle.</div>
-          <h1>A cleaner space.<br><em>A better day.</em></h1>
-          <p class="hero-copy">Spotless Co. brings hotel-level care to homes and businesses. Thoughtful service, sharp details, and a space that feels brand new.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#book">Book a cleaning →</a>
-            <a class="btn secondary" href="#services">Explore services</a>
-          </div>
-          <div class="trust"><span class="stars">★★★★★</span><span>Trusted by local clients</span><span>•</span><span>Easy booking</span></div>
-        </div>
-        <div class="hero-card reveal">
-          <div class="card-image"><div class="floating"><strong>Freshly cleaned</strong><br>Every detail matters.</div></div>
-        </div>
+<nav class="nav">
+  <a class="brand" href="#">SPOTLESS <span>CO.</span></a>
+  <div class="navlinks"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#process">How it works</a></div>
+  <a class="navcta" href="#book">Get a quote →</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="reveal">
+      <div class="eyebrow">Professional cleaning for modern businesses.</div>
+      <h1>Clean spaces.<br><em>Better business.</em></h1>
+      <p class="hero-copy">Spotless Co. keeps offices, commercial spaces and professional environments looking sharp, welcoming and ready for business.</p>
+      <div class="hero-actions"><a class="btn" href="#book">Get a quote →</a><a class="btn secondary" href="#services">Our services</a></div>
+      <div class="trust"><span class="trust-item"><span class="stars">★★★★★</span> 5-star service</span><span class="dot"></span><span class="trust-item">✓ Reliable & insured</span><span class="dot"></span><span class="trust-item">♧ Flexible scheduling</span></div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="office-card">
+        <div class="office-label">COMMERCIAL CLEANING</div>
+        <div class="office-copy"><strong>A workspace worth walking into.</strong><span>Clean desks. Clear floors. Better first impressions.</span></div>
       </div>
-    </section>
+      <div class="review-float"><div class="mini-stars">★★★★★</div><strong>Trusted by local businesses</strong><small>Professional. Reliable. Consistent.</small></div>
+    </div>
+  </div>
+</section>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Clean isn't the goal.<br><span>Spotless is.</span></h2>
-          <p>From quick resets to deep transformations, choose the service that fits your space and your schedule.</p>
-        </div>
-        <div class="services">
-          <article class="service reveal"><div><div class="icon">✦</div><h3>Standard Clean</h3><p>Kitchen, bathrooms, surfaces, floors, dusting and the essentials that make your space feel fresh again.</p></div><div class="arrow">↗</div></article>
-          <article class="service reveal"><div><div class="icon">◌</div><h3>Deep Clean</h3><p>For the reset. Extra attention to buildup, edges, neglected areas and all the little things a normal clean misses.</p></div><div class="arrow">↗</div></article>
-          <article class="service reveal"><div><div class="icon">⌂</div><h3>Move In / Out</h3><p>Starting fresh or leaving it behind? We handle the heavy-duty clean so you can focus on the move.</p></div><div class="arrow">↗</div></article>
-        </div>
-      </div>
-    </section>
+<section id="services">
+<div class="container">
+  <div class="section-head reveal"><div><div class="section-kicker">Our services</div><h2>Cleaning built around<br>your business.</h2></div><p>From recurring office maintenance to detailed deep cleans, we keep your space ready for employees, clients and customers.</p></div>
+  <div class="services">
+    <article class="service reveal"><div class="service-image"></div><div class="service-body"><h3>Office Cleaning</h3><p>Recurring cleaning for desks, floors, kitchens, restrooms and the everyday details your team notices.</p><div class="arrow">↗</div></div></article>
+    <article class="service reveal"><div class="service-image"></div><div class="service-body"><h3>Deep Cleaning</h3><p>A more detailed reset for high-traffic spaces, buildup, neglected areas and important business moments.</p><div class="arrow">↗</div></div></article>
+    <article class="service reveal"><div class="service-image"></div><div class="service-body"><h3>Commercial Spaces</h3><p>Flexible cleaning for studios, retail, property offices and other professional environments.</p><div class="arrow">↗</div></div></article>
+  </div>
+</div>
+</section>
 
-    <section class="dark" id="process">
-      <div class="container">
-        <div class="section-head reveal"><h2>Zero friction.<br>Just clean.</h2><p>We keep the experience simple from your first click to the final walkthrough.</p></div>
-        <div class="steps">
-          <div class="step reveal"><div class="num">01 / TELL US</div><h3>Choose your service.</h3><p>Tell us what you need, where you are, and when you want it.</p></div>
-          <div class="step reveal"><div class="num">02 / WE HANDLE IT</div><h3>We make it happen.</h3><p>Our team arrives ready, prepared and focused on the details.</p></div>
-          <div class="step reveal"><div class="num">03 / BREATHE</div><h3>Come home to clean.</h3><p>Walk in, look around, and enjoy that freshly-reset feeling.</p></div>
-        </div>
-      </div>
-    </section>
+<section class="reviews-section" id="reviews">
+<div class="container">
+  <div class="review-grid">
+    <div class="rating-block reveal"><div class="section-kicker">Client reviews</div><h2>Businesses love a space that feels taken care of.</h2><p>Your workspace says something before anyone says a word. We help make sure it says the right thing.</p><div class="rating-line"><span class="big-stars">★★★★★</span><span>5.0</span><small>Client rating</small></div></div>
+    <div class="review-cards">
+      <article class="review reveal"><div class="review-person"><div class="avatar">JD</div><div><strong>James D.</strong><small>Office Manager</small></div></div><div class="review-stars">★★★★★</div><blockquote>“The office always looks ready for clients. Professional, consistent and easy to work with.”</blockquote><div class="review-date">Verified client</div></article>
+      <article class="review reveal"><div class="review-person"><div class="avatar">SL</div><div><strong>Sophia L.</strong><small>Business Owner</small></div></div><div class="review-stars">★★★★★</div><blockquote>“Our workspace has never looked better. The team is reliable and the attention to detail is obvious.”</blockquote><div class="review-date">Verified client</div></article>
+      <article class="review reveal"><div class="review-person"><div class="avatar">MT</div><div><strong>Michael T.</strong><small>Property Manager</small></div></div><div class="review-stars">★★★★★</div><blockquote>“Straightforward communication, great service and a team that actually shows up when they say they will.”</blockquote><div class="review-date">Verified client</div></article>
+    </div>
+  </div>
+</div>
+</section>
 
-    <section id="reviews">
-      <div class="container">
-        <div class="quote reveal"><blockquote>“It felt like we got our whole house back.”</blockquote><small>★★★★★ &nbsp; • &nbsp; Verified client</small></div>
-      </div>
-    </section>
+<section class="dark" id="process">
+<div class="container">
+  <div class="section-head reveal"><div><div class="section-kicker">How it works</div><h2>Simple. Fast.<br>Spotless.</h2></div><p>Getting your cleaning service started should take minutes, not a dozen phone calls.</p></div>
+  <div class="steps">
+    <div class="step reveal"><div class="num">01 / TELL US</div><h3>Request a quote.</h3><p>Tell us about your space, service needs and preferred schedule.</p></div>
+    <div class="step reveal"><div class="num">02 / CHOOSE A TIME</div><h3>Pick your schedule.</h3><p>We work around your business hours and operational needs.</p></div>
+    <div class="step reveal"><div class="num">03 / WE CLEAN</div><h3>We handle the work.</h3><p>Our team arrives prepared and takes care of the details.</p></div>
+    <div class="step reveal"><div class="num">04 / ENJOY</div><h3>Walk into clean.</h3><p>A cleaner, more welcoming space for your team and your customers.</p></div>
+  </div>
+</div>
+</section>
 
-    <section id="book">
-      <div class="container booking">
-        <div class="reveal">
-          <div class="eyebrow">Ready when you are.</div>
-          <h2>Let's make your space feel new.</h2>
-          <p class="booking-copy">Request a quote in under a minute. We'll follow up with availability and pricing.</p>
-        </div>
-        <form class="form reveal" id="quoteForm">
-          <div class="grid">
-            <div class="field"><label>NAME</label><input required placeholder="Your name" /></div>
-            <div class="field"><label>PHONE</label><input required type="tel" placeholder="(602) 000-0000" /></div>
-            <div class="field"><label>EMAIL</label><input type="email" placeholder="you@email.com" /></div>
-            <div class="field"><label>SERVICE</label><select><option>Standard Clean</option><option>Deep Clean</option><option>Move In / Out</option><option>Commercial</option></select></div>
-            <div class="field"><label>PREFERRED DATE</label><input type="date" /></div>
-            <div class="field"><label>SPACE</label><select><option>Apartment</option><option>House</option><option>Office</option><option>Other</option></select></div>
-            <div class="field full"><label>ANYTHING WE SHOULD KNOW?</label><textarea placeholder="Pets, priorities, special requests..."></textarea></div>
-            <div class="full"><button class="btn" type="submit" style="width:100%">Request my quote →</button></div>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
+<section id="book">
+<div class="container booking">
+  <div class="reveal"><div class="section-kicker">Ready for a cleaner space?</div><h2>Get your free quote.</h2><p class="booking-copy">Tell us about your business and what you need cleaned. We'll follow up with availability and pricing.</p></div>
+  <form class="form reveal" id="quoteForm">
+    <div class="form-title">Tell us about your business</div>
+    <div class="grid">
+      <div class="field"><label>FULL NAME</label><input required placeholder="Your name"></div>
+      <div class="field"><label>BUSINESS NAME</label><input required placeholder="Company name"></div>
+      <div class="field"><label>EMAIL</label><input required type="email" placeholder="you@company.com"></div>
+      <div class="field"><label>PHONE</label><input required type="tel" placeholder="(602) 000-0000"></div>
+      <div class="field"><label>SERVICE</label><select><option>Office Cleaning</option><option>Deep Cleaning</option><option>Commercial Cleaning</option><option>Move In / Out</option></select></div>
+      <div class="field"><label>FREQUENCY</label><select><option>One-time</option><option>Weekly</option><option>Bi-weekly</option><option>Multiple times per week</option><option>Not sure yet</option></select></div>
+      <div class="field full"><label>TELL US ABOUT THE SPACE</label><textarea placeholder="Approx. size, number of rooms, priorities..."></textarea></div>
+      <div class="full"><button class="btn" type="submit" style="width:100%">Request my quote →</button></div>
+    </div>
+  </form>
+</div>
+</section>
+</main>
 
-  <footer><div class="footer-inner"><div><div class="footer-brand">SPOTLESS CO.</div><div>Clean, elevated.</div></div><div>© 2026 Spotless Co. All rights reserved.</div></div></footer>
-  <div class="toast" id="toast">Request received. We'll be in touch. ✓</div>
+<footer><div class="footer-inner"><div><div class="footer-brand">SPOTLESS CO.</div><div class="footer-sub">Clean spaces. Better business.</div></div><div>© 2026 Spotless Co. All rights reserved.</div></div></footer>
+<div class="toast" id="toast">Request received. We'll be in touch. ✓</div>
 
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    document.getElementById('quoteForm').addEventListener('submit', e => {
-      e.preventDefault();
-      document.getElementById('toast').classList.add('show');
-      setTimeout(() => document.getElementById('toast').classList.remove('show'), 3500);
-      e.target.reset();
-    });
-  </script>
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.getElementById('quoteForm').addEventListener('submit',event=>{event.preventDefault();const toast=document.getElementById('toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500);event.target.reset()});
+</script>
 </body>
 </html>
